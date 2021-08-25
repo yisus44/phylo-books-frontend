@@ -1,7 +1,7 @@
 {
   "name": "client",
   "version": "0.1.0",
-  "homepage": "https://github.com/yisus44/phylo-books-frontend",
+  "homepage": ".",
   "private": true,
   "dependencies": {
     "@stripe/react-stripe-js": "^1.4.1",
