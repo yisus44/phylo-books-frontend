@@ -1,25 +1,31 @@
-import logo from './logo.svg';
+import 'bootswatch/dist/litera/bootstrap.min.css';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { SingleProduct } from './page/SingleProduct';
 import './App.css';
+import { loadStripe } from '@stripe/stripe-js';
+import { Elements } from '@stripe/react-stripe-js';
+
+import { NavBar } from './components/navbar/NavBar';
+import { ItemContainer } from './components/item-container/ItemContainer';
+import { Footer } from './components/footer/Footer';
+
+const stripePromise = loadStripe(
+  'pk_test_51IQHtaIhuPxmQvYnZmMgskzbSXVYycj8njBkZY18LrMxiGmwKUfdm8NqWvbY4MUaPr8veRvBfE37VStBKgIWnjon00eJMvZrrl'
+);
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Router>
+        <NavBar />
+        <Elements stripe={stripePromise}>
+          <Route exact path="/" component={ItemContainer}></Route>
+          <Route exact path="/products/:id" component={SingleProduct}></Route>
+        </Elements>
+
+        <Footer />
+      </Router>
     </div>
   );
 }
-
 export default App;
