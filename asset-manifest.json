@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/yisus44/phylo-books-frontend/static/css/main.deca669c.chunk.css",
+    "main.js": "/yisus44/phylo-books-frontend/static/js/main.13c46a38.chunk.js",
+    "main.js.map": "/yisus44/phylo-books-frontend/static/js/main.13c46a38.chunk.js.map",
+    "runtime-main.js": "/yisus44/phylo-books-frontend/static/js/runtime-main.81d42394.js",
+    "runtime-main.js.map": "/yisus44/phylo-books-frontend/static/js/runtime-main.81d42394.js.map",
+    "static/css/2.a75c2e9c.chunk.css": "/yisus44/phylo-books-frontend/static/css/2.a75c2e9c.chunk.css",
+    "static/js/2.76c40139.chunk.js": "/yisus44/phylo-books-frontend/static/js/2.76c40139.chunk.js",
+    "static/js/2.76c40139.chunk.js.map": "/yisus44/phylo-books-frontend/static/js/2.76c40139.chunk.js.map",
+    "static/js/3.483ac8f3.chunk.js": "/yisus44/phylo-books-frontend/static/js/3.483ac8f3.chunk.js",
+    "static/js/3.483ac8f3.chunk.js.map": "/yisus44/phylo-books-frontend/static/js/3.483ac8f3.chunk.js.map",
+    "index.html": "/yisus44/phylo-books-frontend/index.html",
+    "static/css/2.a75c2e9c.chunk.css.map": "/yisus44/phylo-books-frontend/static/css/2.a75c2e9c.chunk.css.map",
+    "static/css/main.deca669c.chunk.css.map": "/yisus44/phylo-books-frontend/static/css/main.deca669c.chunk.css.map",
+    "static/js/2.76c40139.chunk.js.LICENSE.txt": "/yisus44/phylo-books-frontend/static/js/2.76c40139.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.81d42394.js",
+    "static/css/2.a75c2e9c.chunk.css",
+    "static/js/2.76c40139.chunk.js",
+    "static/css/main.deca669c.chunk.css",
+    "static/js/main.13c46a38.chunk.js"
+  ]
+}

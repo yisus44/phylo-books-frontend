@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/App.css"],"names":[],"mappings":"AAAA,KACE,cACF,CAEA,KACE,WACF,CACA,IACE,SAAU,CACV,eACF,CACA,QACE,iBACF","file":"main.deca669c.chunk.css","sourcesContent":[".App {\n  margin: 10% 40%;\n}\n\nbody {\n  height: 100%;\n}\nimg {\n  width: 90%;\n  max-width: 550px;\n}\n.center {\n  text-align: center;\n}\n"]}
