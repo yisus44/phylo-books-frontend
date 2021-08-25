@@ -31,7 +31,7 @@ export function ItemForm({ product }) {
           {mainContent}
           {!readMore && product.description.length > 140 && (
             <p
-              class="text-info"
+              className="text-info"
               onClick={() => {
                 setReadMore(!readMore);
               }}
@@ -42,7 +42,7 @@ export function ItemForm({ product }) {
           {readMore && extraContent}
         </p>
         <Link to={`/products/${product._id}`}>
-          <button type="button" class="btn btn-info">
+          <button type="button" className="btn btn-info">
             Shop now!
           </button>
         </Link>

@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 import axios from 'axios';
 
-const ext = 'https://flores-phylo-books.herokuapp.com';
+import { ext } from '../keys';
 export function SingleProduct(props) {
   const [loading, setLoading] = useState(false);
   const stripe = useStripe();
