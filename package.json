@@ -1,6 +1,9 @@
 {
   "name": "client",
   "version": "0.1.0",
+  "predeploy": "npm run build",
+  "deploy": "gh-pages -d build",
+  "homepage": "https://github.com/yisus44/phylo-books-frontend",
   "private": true,
   "dependencies": {
     "@stripe/react-stripe-js": "^1.4.1",
