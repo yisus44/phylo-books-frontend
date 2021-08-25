@@ -44,7 +44,6 @@ export function SingleProduct(props) {
   const id = props.match.params.id;
   const { isLoading, data } = useFetch(ext + '/api/products/' + id);
   if (data) {
-    console.log(data);
     return (
       <div className="container p-1">
         <div className="row">

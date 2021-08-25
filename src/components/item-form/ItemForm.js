@@ -9,7 +9,6 @@ export function ItemForm({ product }) {
   let mainContent;
 
   if (product.description.length > 140) {
-    console.log(extraContent);
     mainContent = product.description.substring(0, 140);
     extraContent = product.description.substring(
       140,
