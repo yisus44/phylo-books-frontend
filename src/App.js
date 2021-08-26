@@ -10,9 +10,9 @@ import { NavBar } from './components/navbar/NavBar';
 import { ItemContainer } from './components/item-container/ItemContainer';
 import { Footer } from './components/footer/Footer';
 import { SignUp } from './pages/SignUp';
+import { UserOrders } from './pages/UserOrders';
 import { Me } from './pages/Me';
 import { AuthProvider } from './services/auth';
-
 const stripePromise = loadStripe(
   'pk_test_51IQHtaIhuPxmQvYnZmMgskzbSXVYycj8njBkZY18LrMxiGmwKUfdm8NqWvbY4MUaPr8veRvBfE37VStBKgIWnjon00eJMvZrrl'
 );
@@ -28,6 +28,7 @@ function App() {
             <Route exact path="/users/signin" component={SignIn}></Route>
             <Route exact path="/users/signup" component={SignUp}></Route>
             <Route exact path="/users/me" component={Me}></Route>
+            <Route exact path="/users/orders" component={UserOrders}></Route>
           </Elements>
           <Footer />
         </Router>

@@ -18,6 +18,9 @@ export function NavBar() {
             <a className="navbar-brand" href="/users/me">
               Me
             </a>
+            <a className="navbar-brand" href="/users/orders">
+              My orders
+            </a>
             <a className="navbar-brand" onClick={logout} href="/">
               Logout
             </a>

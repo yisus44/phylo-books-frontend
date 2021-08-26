@@ -13,6 +13,7 @@ export function SingleProduct(props) {
   const stripe = useStripe();
   const elements = useElements();
   const { user } = useContext(AuthContext);
+
   async function onClick(e) {
     e.preventDefault();
     const { error, paymentMethod } = await stripe.createPaymentMethod({
@@ -27,6 +28,8 @@ export function SingleProduct(props) {
         const response = await axios.post(ext + '/api/checkout', {
           id,
           amount: data.price * 1000, //cents
+          user_id: user._id,
+          product_id: data._id,
         });
 
         if (response.status === 200) {

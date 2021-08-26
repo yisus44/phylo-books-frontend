@@ -6,6 +6,10 @@ export function Me() {
 
   const [user, setUser] = useState();
 
+  if (!token) {
+    return <h1>You must be logged in to see this information</h1>;
+  }
+
   axios
     .get(ext + '/api/users/me', {
       headers: { 'x-access-token': token },
