@@ -1,38 +1,42 @@
 import React from 'react';
 import { useContext } from 'react';
 import { AuthContext } from '../../services/auth';
+import { Link } from 'react-router-dom';
 export function NavBar() {
   const { user, logout } = useContext(AuthContext);
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
       <div className="container-fluid">
-        <a className="navbar-brand" href="/">
+        <Link className="navbar-brand" to="/">
           Phylo-books
-        </a>
+        </Link>
       </div>
 
       <div className="d-flex">
         {user ? (
           <div>
-            <a className="navbar-brand" href="/users/me">
+            <Link className="navbar-brand" to="/users/me">
               Me
-            </a>
-            <a className="navbar-brand" href="/users/orders">
+            </Link>
+            <Link className="navbar-brand" to="/users/orders">
               My orders
-            </a>
-            <a className="navbar-brand" onClick={logout} href="/">
+            </Link>
+            <Link className="navbar-brand" onClick={logout} to="/">
+              {' '}
               Logout
-            </a>
+            </Link>
           </div>
         ) : (
           <div>
-            <a className="navbar-brand" href="/users/signup">
+            <Link className="navbar-brand" to="/users/signup">
+              {' '}
               Sign up now
-            </a>
-            <a className="navbar-brand" href="/users/signin">
+            </Link>
+            <Link className="navbar-brand" to="/users/signin">
+              {' '}
               Sign in now
-            </a>
+            </Link>
           </div>
         )}
       </div>
