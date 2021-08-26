@@ -21,7 +21,7 @@ export function UserOrders() {
   return (
     <div className="container p-1 center">
       <div className="row">
-        <h2>Your orders</h2>
+        <h2>{products.length === 1 ? 'Your latest order' : 'Your orders'}</h2>
 
         {products.map((product) => {
           return (
