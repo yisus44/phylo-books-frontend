@@ -21,7 +21,6 @@ export function SignUp() {
         email,
       })
       .then((response) => {
-        console.log(response.data);
         context.login(response.data);
 
         history.push('/');

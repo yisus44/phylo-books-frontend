@@ -10,7 +10,7 @@ import { NavBar } from './components/navbar/NavBar';
 import { ItemContainer } from './components/item-container/ItemContainer';
 import { Footer } from './components/footer/Footer';
 import { SignUp } from './pages/SignUp';
-
+import { Me } from './pages/Me';
 import { AuthProvider } from './services/auth';
 
 const stripePromise = loadStripe(
@@ -27,6 +27,7 @@ function App() {
             <Route exact path="/products/:id" component={SingleProduct}></Route>
             <Route exact path="/users/signin" component={SignIn}></Route>
             <Route exact path="/users/signup" component={SignUp}></Route>
+            <Route exact path="/users/me" component={Me}></Route>
           </Elements>
           <Footer />
         </Router>

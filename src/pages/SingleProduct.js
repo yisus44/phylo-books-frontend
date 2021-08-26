@@ -1,17 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 
 import useFetch from 'react-fetch-hook';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import { Link } from 'react-router-dom';
 
 import axios from 'axios';
+import { AuthContext } from '../services/auth';
 
 import { ext } from '../keys';
 export function SingleProduct(props) {
   const [loading, setLoading] = useState(false);
   const stripe = useStripe();
   const elements = useElements();
-
+  const { user } = useContext(AuthContext);
   async function onClick(e) {
     e.preventDefault();
     const { error, paymentMethod } = await stripe.createPaymentMethod({
@@ -71,22 +72,42 @@ export function SingleProduct(props) {
             </div>
             <br />
             <div className="border">
-              <p>Your payment info</p>
-              <CardElement />
-              <br />
-              <button
-                className="btn btn-success"
-                onClick={onClick}
-                disabled={!stripe}
-              >
-                {loading ? (
-                  <div className="spinner-border text-light" role="status">
-                    <span className="sr-only">Loading...</span>
+              {user ? (
+                <div>
+                  <p>Your payment info</p>
+                  <CardElement />
+                  <br />
+                  <button
+                    className="btn btn-success"
+                    onClick={onClick}
+                    disabled={!stripe}
+                  >
+                    {loading ? (
+                      <div className="spinner-border text-light" role="status">
+                        <span className="sr-only">Loading...</span>
+                      </div>
+                    ) : (
+                      'Buy'
+                    )}
+                  </button>
+                </div>
+              ) : (
+                <div className="form-group row">
+                  <div className="col-sm">
+                    <Link to="/users/signin">
+                      <button type="submit" className="btn btn-primary m-2">
+                        Sign up to continue
+                      </button>
+                      Or . . . .
+                    </Link>
+                    <Link to="/users/signin">
+                      <button type="submit" className="btn btn-primary m-2">
+                        Sign in
+                      </button>
+                    </Link>
                   </div>
-                ) : (
-                  'Buy'
-                )}
-              </button>
+                </div>
+              )}
             </div>
           </div>
         </div>

@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import { AuthContext } from '../../services/auth';
 export function NavBar() {
   const { user, logout } = useContext(AuthContext);
-  console.log(user);
+
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
       <div className="container-fluid">
@@ -15,7 +15,10 @@ export function NavBar() {
       <div className="d-flex">
         {user ? (
           <div>
-            <a className="navbar-brand" onClick={logout}>
+            <a className="navbar-brand" href="/users/me">
+              Me
+            </a>
+            <a className="navbar-brand" onClick={logout} href="/">
               Logout
             </a>
           </div>

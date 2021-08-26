@@ -7,12 +7,16 @@ const initialState = {
 };
 
 if (localStorage.getItem('jwtToken')) {
-  const decodedToken = jwtDecode(localStorage.getItem('jwtToken'));
+  try {
+    const decodedToken = jwtDecode(localStorage.getItem('jwtToken'));
 
-  if (decodedToken.exp * 1000 < Date.now()) {
-    localStorage.removeItem('jwtToken');
-  } else {
-    initialState.user = decodedToken;
+    if (decodedToken.exp * 1000 < Date.now()) {
+      localStorage.removeItem('jwtToken');
+    } else {
+      initialState.user = decodedToken;
+    }
+  } catch (error) {
+    console.log(error);
   }
 }
 
