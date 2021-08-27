@@ -8,17 +8,17 @@ import { AuthContext } from '../services/auth';
 export function SignUp() {
   const context = useContext(AuthContext);
   const [name, setName] = useState('');
-  const [password, setEmail] = useState('');
-  const [email, setPassword] = useState('');
+  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('');
   let history = useHistory();
-
   function onSubmit(e) {
+    console.log(name, password, email);
     e.preventDefault();
     axios
       .post(ext + '/api/users/signup', {
-        name,
-        password,
-        email,
+        name: name,
+        password: password,
+        email: email,
       })
       .then((response) => {
         context.login(response.data);
@@ -26,6 +26,8 @@ export function SignUp() {
         history.push('/');
       })
       .catch((reason) => {
+        console.log(reason);
+
         alert('Bad input');
       });
   }

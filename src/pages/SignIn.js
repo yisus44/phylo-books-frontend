@@ -8,8 +8,8 @@ import { AuthContext } from '../services/auth';
 export function SignIn() {
   const context = useContext(AuthContext);
 
-  const [password, setEmail] = useState('');
-  const [email, setPassword] = useState('');
+  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('');
   let history = useHistory();
 
   function onSubmit(e) {
