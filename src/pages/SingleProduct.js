@@ -42,6 +42,8 @@ export function SingleProduct(props) {
             alert('Your payment has been successful');
           } else if (response.status === 500) {
             alert('Something went wrong, try again later');
+          } else {
+            alert('Something went wrong, try again later');
           }
           elements.getElement(CardElement).clear();
         }
@@ -92,12 +94,16 @@ export function SingleProduct(props) {
                   >
                     {loading ? (
                       <div className="spinner-border text-light" role="status">
-                        <span className="sr-only">Loading...</span>
+                        <span className="sr-only"></span>
                       </div>
                     ) : (
                       'Buy'
                     )}
                   </button>
+                  <br />
+                  <p style={{ color: 'red' }}>
+                    Example: 4242 4242 42424 4242 5/30 45131
+                  </p>
                 </div>
               ) : (
                 <div className="form-group row">
