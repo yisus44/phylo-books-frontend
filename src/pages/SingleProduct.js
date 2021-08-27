@@ -8,12 +8,16 @@ import axios from 'axios';
 import { AuthContext } from '../services/auth';
 
 import { ext } from '../keys';
+
 export function SingleProduct(props) {
+  //the problem
+  const context = useContext(AuthContext);
+  const { user } = context;
   const [loading, setLoading] = useState(false);
   const stripe = useStripe();
   const elements = useElements();
-  const { user } = useContext(AuthContext);
-
+  const id = props.match.params.id;
+  const { isLoading, data } = useFetch(ext + '/api/products/' + id);
   async function onClick(e) {
     e.preventDefault();
     const { error, paymentMethod } = await stripe.createPaymentMethod({
@@ -25,19 +29,22 @@ export function SingleProduct(props) {
     if (!error) {
       const { id } = paymentMethod;
       try {
-        const response = await axios.post(ext + '/api/checkout', {
-          id,
-          amount: data.price * 1000, //cents
-          user_id: user._id,
-          product_id: data._id,
-        });
+        const userId = context.user.user._id;
+        if (userId) {
+          const response = await axios.post(ext + '/api/checkout', {
+            id,
+            amount: data.price * 1000, //cents
+            user_id: userId,
+            product_id: data._id,
+          });
 
-        if (response.status === 200) {
-          alert('Your payment has been successful');
-        } else if (response.status === 500) {
-          alert('Something went wrong, try again later');
+          if (response.status === 200) {
+            alert('Your payment has been successful');
+          } else if (response.status === 500) {
+            alert('Something went wrong, try again later');
+          }
+          elements.getElement(CardElement).clear();
         }
-        elements.getElement(CardElement).clear();
       } catch (error) {
         console.log(error);
       }
@@ -45,8 +52,6 @@ export function SingleProduct(props) {
     }
   }
 
-  const id = props.match.params.id;
-  const { isLoading, data } = useFetch(ext + '/api/products/' + id);
   if (data) {
     return (
       <div className="container p-1">
