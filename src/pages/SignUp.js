@@ -12,7 +12,6 @@ export function SignUp() {
   const [email, setEmail] = useState('');
   let history = useHistory();
   function onSubmit(e) {
-    console.log(name, password, email);
     e.preventDefault();
     axios
       .post(ext + '/api/users/signup', {
@@ -22,12 +21,10 @@ export function SignUp() {
       })
       .then((response) => {
         context.login(response.data);
-
         history.push('/');
       })
       .catch((reason) => {
         console.log(reason);
-
         alert('Bad input');
       });
   }
@@ -49,6 +46,7 @@ export function SignUp() {
                 className="form-control-plaintext"
                 required
                 name="name"
+                placeholder="A cool username"
                 onChange={(event) => setName(event.target.value)}
               />
             </div>
@@ -61,9 +59,11 @@ export function SignUp() {
                 type="email"
                 className="form-control-plaintext"
                 name="email"
+                placeholder="A valid email"
                 required
                 onChange={(event) => setEmail(event.target.value)}
               />
+              <p>Remember that email must not have been registered before</p>
             </div>
           </div>
           <br />
@@ -74,9 +74,11 @@ export function SignUp() {
                 type="password"
                 className="form-control-plaintext"
                 name="password"
+                placeholder="A password of at least 8 characters"
                 required
                 onChange={(event) => setPassword(event.target.value)}
               />
+              <p>Remember that password must be 8 character long at least</p>
             </div>
           </div>
           <br />

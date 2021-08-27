@@ -4,7 +4,9 @@ import { AuthContext } from '../../services/auth';
 import { Link } from 'react-router-dom';
 export function NavBar() {
   const { user, logout } = useContext(AuthContext);
-
+  // <Link className="navbar-brand" to="/users/orders">
+  //   My orders
+  // </Link>
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
       <div className="container-fluid">
@@ -18,9 +20,6 @@ export function NavBar() {
           <div>
             <Link className="navbar-brand" to="/users/me">
               Me
-            </Link>
-            <Link className="navbar-brand" to="/users/orders">
-              My orders
             </Link>
             <Link className="navbar-brand" onClick={logout} to="/">
               {' '}
