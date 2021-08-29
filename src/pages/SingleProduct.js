@@ -7,10 +7,11 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { AuthContext } from '../services/auth';
 
+import { LikeButton } from '../components/like-button/LikeButton';
+
 import { ext } from '../keys';
 
 export function SingleProduct(props) {
-  //the problem
   const context = useContext(AuthContext);
   const { user } = context;
   const [loading, setLoading] = useState(false);
@@ -53,7 +54,7 @@ export function SingleProduct(props) {
       setLoading(false);
     }
   }
-
+  console.log(context);
   if (data) {
     return (
       <div className="container p-1">
@@ -123,6 +124,7 @@ export function SingleProduct(props) {
                 </div>
               )}
             </div>
+            <LikeButton user={context.user} product={data}></LikeButton>
           </div>
         </div>
       </div>
